@@ -12,24 +12,25 @@
 
 #include <Wt/WContainerWidget.h>
 
-class ImagesWidget : public Wt::WContainerWidget {
+class ImagesWidget : public Wt::WContainerWidget
+{
 public:
-  static const int HURRAY;
+    static const int HURRAY;
 
-  ImagesWidget(int maxGuesses);
+    ImagesWidget(int maxGuesses);
 
-  /*
+    /*
    * 0 - maxGuesses: corresponds to 0 up to maxGuesses guesses
    *         HURRAY: when won
    */
-  void showImage(int index);
-  int currentImage() const { return image_; }
+    void showImage(int index);
+    int currentImage() const { return image_; }
 
 private:
-  std::vector<Wt::WImage *> images_;
-  int image_;
+    std::vector<Wt::WImage*> images_;
+    int image_;
 
-  Wt::WImage *image(int index) const;
+    Wt::WImage* image(int index) const;
 };
 
-#endif // IMAGES_WIDGET_H_
+#endif  // IMAGES_WIDGET_H_

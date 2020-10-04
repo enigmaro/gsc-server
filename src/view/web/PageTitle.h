@@ -20,35 +20,36 @@ class WString;
 class WText;
 
 class WWidget;
-} // namespace Wt
+}  // namespace Wt
 
-class PageTitle {
+class PageTitle
+{
 public:
-  static PageTitle user_home(Wt::Dbo::ptr<User> const &);
-  static PageTitle user_profile(Wt::Dbo::ptr<User> const &);
-  static PageTitle user_hwN(Wt::Dbo::ptr<Submission> const &,
-                            Wt::Dbo::ptr<User> const &current_user);
-  static PageTitle user_hwN_eval(Wt::Dbo::ptr<Submission> const &,
-                                 Wt::Dbo::ptr<User> const &current_user);
+    static PageTitle user_home(Wt::Dbo::ptr<User> const&);
+    static PageTitle user_profile(Wt::Dbo::ptr<User> const&);
+    static PageTitle user_hwN(Wt::Dbo::ptr<Submission> const&,
+                              Wt::Dbo::ptr<User> const& current_user);
+    static PageTitle user_hwN_eval(Wt::Dbo::ptr<Submission> const&,
+                                   Wt::Dbo::ptr<User> const& current_user);
 
-  std::string get_text() const;
-  std::unique_ptr<Wt::WWidget> build_widget() const;
+    std::string get_text() const;
+    std::unique_ptr<Wt::WWidget> build_widget() const;
 
 protected:
-  void plain(std::string_view text);
-  void link(std::string_view text, std::string_view link);
+    void plain(std::string_view text);
+    void link(std::string_view text, std::string_view link);
 
 private:
-  struct Chunk_;
+    struct Chunk_;
 
-  std::vector<Chunk_> chunks_;
+    std::vector<Chunk_> chunks_;
 };
 
 struct PageTitle::Chunk_ {
-  std::string text;
-  std::string link; // empty means plain text
+    std::string text;
+    std::string link;  // empty means plain text
 
-  explicit Chunk_(std::string_view text, std::string_view link = "");
+    explicit Chunk_(std::string_view text, std::string_view link = "");
 };
 
 // std::ostringstream                    oss_;

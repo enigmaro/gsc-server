@@ -12,13 +12,14 @@
 
 class Session;
 
-class HighScoresWidget : public Wt::WContainerWidget {
+class HighScoresWidget : public Wt::WContainerWidget
+{
 public:
-  HighScoresWidget(Session &session);
-  void update();
+    HighScoresWidget(Session& session);
+    void update();
 
 private:
-  Session &session_;
+    Session& session_;
 };
 
-#endif // HIGH_SCORES_WIDGET_H_
+#endif  // HIGH_SCORES_WIDGET_H_

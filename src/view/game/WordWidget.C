@@ -10,32 +10,40 @@
 
 using namespace Wt;
 
-WordWidget::WordWidget() { addStyleClass("wordcontainer"); }
-
-void WordWidget::init(const std::wstring &word) {
-  word_ = word;
-  displayedLetters_ = 0;
-
-  clear();
-  wordLetters_.clear();
-  for (unsigned int i = 0; i < word_.size(); ++i) {
-    WText *c = addNew<WText>("-");
-    wordLetters_.push_back(c);
-  }
+WordWidget::WordWidget()
+{
+    addStyleClass("wordcontainer");
 }
 
-bool WordWidget::guess(wchar_t c) {
-  bool correct = false;
+void WordWidget::init(const std::wstring& word)
+{
+    word_             = word;
+    displayedLetters_ = 0;
 
-  for (unsigned int i = 0; i < word_.size(); ++i) {
-    if (word_[i] == c) {
-      displayedLetters_++;
-      wordLetters_[i]->setText(std::wstring(1, c));
-      correct = true;
+    clear();
+    wordLetters_.clear();
+    for (unsigned int i = 0; i < word_.size(); ++i) {
+        WText* c = addNew<WText>("-");
+        wordLetters_.push_back(c);
     }
-  }
-
-  return correct;
 }
 
-bool WordWidget::won() { return displayedLetters_ == word_.size(); }
+bool WordWidget::guess(wchar_t c)
+{
+    bool correct = false;
+
+    for (unsigned int i = 0; i < word_.size(); ++i) {
+        if (word_[i] == c) {
+            displayedLetters_++;
+            wordLetters_[i]->setText(std::wstring(1, c));
+            correct = true;
+        }
+    }
+
+    return correct;
+}
+
+bool WordWidget::won()
+{
+    return displayedLetters_ == word_.size();
+}

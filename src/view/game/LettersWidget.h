@@ -16,24 +16,25 @@ class WContainerWidget;
 class WPushButton;
 
 class WTable;
-} // namespace Wt
+}  // namespace Wt
 
-class LettersWidget : public Wt::WCompositeWidget {
+class LettersWidget : public Wt::WCompositeWidget
+{
 public:
-  LettersWidget();
+    LettersWidget();
 
-  void reset();
+    void reset();
 
-  Wt::Signal<char> &letterPushed() { return letterPushed_; }
+    Wt::Signal<char>& letterPushed() { return letterPushed_; }
 
 private:
-  Wt::WTable *impl_;
-  std::vector<Wt::WPushButton *> letterButtons_;
+    Wt::WTable* impl_;
+    std::vector<Wt::WPushButton*> letterButtons_;
 
-  Wt::Signal<char> letterPushed_;
+    Wt::Signal<char> letterPushed_;
 
-  void process_key_index(int);
-  void process_key(const Wt::WKeyEvent &);
+    void process_key_index(int);
+    void process_key(const Wt::WKeyEvent&);
 };
 
-#endif // LETTERS_WIDGET_H_
+#endif  // LETTERS_WIDGET_H_

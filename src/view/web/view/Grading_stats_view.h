@@ -4,10 +4,11 @@
 
 class Session;
 
-class Grading_stats_view : public Wt::WCompositeWidget {
+class Grading_stats_view : public Wt::WCompositeWidget
+{
 public:
-  explicit Grading_stats_view(Session &);
+    explicit Grading_stats_view(Session&);
 
 private:
-  Session &session_;
+    Session& session_;
 };

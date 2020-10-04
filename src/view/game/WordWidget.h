@@ -10,22 +10,23 @@
 
 #include <Wt/WContainerWidget.h>
 
-class WordWidget : public Wt::WContainerWidget {
+class WordWidget : public Wt::WContainerWidget
+{
 public:
-  WordWidget();
+    WordWidget();
 
-  std::wstring word() const { return word_; }
+    std::wstring word() const { return word_; }
 
-  void init(const std::wstring &word);
-  bool guess(wchar_t c);
+    void init(const std::wstring& word);
+    bool guess(wchar_t c);
 
-  bool won();
+    bool won();
 
 private:
-  std::vector<Wt::WText *> wordLetters_;
-  std::wstring word_;
+    std::vector<Wt::WText*> wordLetters_;
+    std::wstring word_;
 
-  unsigned displayedLetters_;
+    unsigned displayedLetters_;
 };
 
-#endif // WORD_WIDGET_H_
+#endif  // WORD_WIDGET_H_

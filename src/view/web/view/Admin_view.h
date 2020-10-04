@@ -5,10 +5,11 @@
 
 class Session;
 
-class Admin_view : public Wt::WContainerWidget {
+class Admin_view : public Wt::WContainerWidget
+{
 public:
-  explicit Admin_view(Session &);
+    explicit Admin_view(Session&);
 
 private:
-  Session &session_;
+    Session& session_;
 };
