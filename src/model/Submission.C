@@ -858,6 +858,7 @@ char const* Enum<Submission::Status>::show(Submission::Status status)
     case S::extended_eval: return "extended_eval";
     case S::closed: return "closed";
     }
+    return "invalid";
 }
 
 char const* Enum<Submission::Eval_status>::show(Submission::Eval_status status)
@@ -870,4 +871,5 @@ char const* Enum<Submission::Eval_status>::show(Submission::Eval_status status)
     case S::started: return "started";
     case S::complete: return "complete";
     }
+    return "invalid";
 }

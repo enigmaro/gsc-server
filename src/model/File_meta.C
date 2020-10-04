@@ -30,6 +30,8 @@ char const* Enum<File_purpose>::show(File_purpose purpose)
     case File_purpose::test: return "test";
     case File_purpose::forbidden: return "forbidden";
     }
+    
+    return "invalid";
 }
 
 static regex const config_re("config", regex_constants::icase);
