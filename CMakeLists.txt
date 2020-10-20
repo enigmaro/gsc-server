@@ -101,13 +101,13 @@ set(WWW_SRC_FILES
         src/view/game/ImagesWidget.C
         src/view/game/LettersWidget.C
         src/view/game/WordWidget.C)
-
+find_package(Boost 1.73 COMPONENTS headers thread system filesystem REQUIRED)
 find_package(Wt REQUIRED
         COMPONENTS wt dbo dbopostgres
         OPTIONAL_COMPONENTS wthttp wtfcgi)
 
-set(LIBRARIES Wt::Wt Wt::Dbo Wt::DboPostgres)
-
+set(LIBRARIES Wt::Wt Wt::Dbo Wt::DboPostgres ${Boost_LIBRARIES})
+include_directories(${Boost_INCLUDE_DIRS})
 if(TARGET Wt::HTTP)
     add_program(gscd ${WWW_SRC_FILES})
     target_link_libraries(gscd Wt::HTTP ${LIBRARIES})
